@@ -6,6 +6,9 @@ include(DefaultBuildType)
 # ==== Project Name ====
 project(ouster_ros)
 
+# Suppress deprecated declaration warnings
+add_compile_options(-Wno-deprecated-declarations)
+
 # ==== Requirements ====
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
@@ -251,7 +254,7 @@ install(
     share/${PROJECT_NAME}
 )
 
-ament_export_include_directories(include) 
+ament_export_include_directories(include)
 ament_export_dependencies(rosidl_default_runtime)
 ament_export_libraries(ouster_ros_library)
 ament_export_dependencies(${ouster_ros_library_deps})
